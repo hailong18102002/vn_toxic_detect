@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Lịch sử kiểm tra</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/history_styles.css') }}">
+    <script src="{{ url_for('static', filename='js/history.js') }}"></script>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="VTC Academy">
+    </div>
+    <div class="user-info">
+        Hi quynh1421
+        <button class="logout-btn">Đăng xuất</button>
+    </div>
+</header>
+<div class="container">
+    <h2>Lịch sử kiểm tra</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Ngày</th>
+                <th>Nội dung</th>
+                <th>Liên kết</th>
+                <th>Hình thức</th>
+                <th>Trạng thái</th>
+                <th>Phần trăm</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for h in histories %}
+            <tr>
+                <td>{{ h.date }}</td>
+                <td>
+                    {{ h.short_content }}
+                    <!-- {% if h.show_more %}
+                        <a href="#" class="view-more" data-full="{{ h.content }}">Xem thêm</a>
+                    {% endif %} -->
+                </td>
+                <td><a href="{{ h.url }}" target="_blank">{{ h.url }}</a></td>
+                <td>{{ h.type }}</td>
+                <td style="color: {{ h.status_color }};">{{ 'Nội dung toxic' if h.status == 'toxic' else 'Bình thường' }}</td>
+                <td>{{ h.score }}%</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="center">
+        <button id="back-button">Quay lại</button>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+body {
+    margin: 0;
+    background-color: #f8f9fb;
+}
+header {
+    background: linear-gradient(to right, #25427E, #4377E4);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+.logo img {
+    height: 40px;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.logout-btn {
+    background: white;
+    color: #25427E;
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+.container {
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 20px;
+}
+h2 {
+    color: #25427E;
+    text-align: center;
+}
+.input-section {
+    margin-top: 30px;
+}
+.input-label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+}
+.radio-options {
+    margin-bottom: 20px;
+}
+.radio-options label {
+    margin-right: 20px;
+}
+.input-box {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 20px;
+    background-color: #d9d9d9;
+    margin-bottom: 20px;
+}
+.voice-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.custom-upload, .record-btn {
+    flex: 1;
+    height: 52px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.custom-upload {
+    background-color: #d9d9d9;
+    color: #555;
+    position: relative;
+}
+.custom-upload input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+}
+.custom-upload::before {
+    content: '';
+    display: inline-block;
+    background-image: url('upload-icon.png'); /* You should use a real icon file */
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+.record-btn {
+    background-color: #1e3a8a;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.check-btn, .reset-btn,.history-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(to right, #25427E, #4377E4);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 5px;
+}
+.result-section {
+    margin-top: 40px;
+    display: none;
+}
+.text-full {
+    background: white;
+    border: 1px solid #25427E;
+    border-radius: 10px;
+    padding: 15px;
+    white-space: pre-wrap;
+}
+.status-bar {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+.bar {
+    flex: 1;
+    height: 10px;
+    margin: 0 10px;
+    border-radius: 5px;
+    background: #e0e0e0;
+    position: relative;
+}
+.bar-fill {
+    height: 100%;
+    border-radius: 5px;
+    background: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.bar-label {
+    color: red;
+}

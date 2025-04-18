@@ -1,0 +1,6 @@
+.venv
+.env
+*mp3
+**/whisper_model
+**/your_custom_dir
+**/models

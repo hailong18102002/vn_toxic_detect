@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Trang phát hiện nội dung vi phạm AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/detect_style.css') }}">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="VTC Academy">
+    </div>
+    <div class="user-info">
+      xin chao
+      <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2>CHÀO MỪNG BẠN ĐẾN VỚI TRANG PHÁT HIỆN NỘI DUNG VĂN BẢN VI PHẠM AI</h2>
+
+    <div class="input-section">
+      <label class="input-label">Vui lòng chọn định dạng văn bản</label>
+      <div class="radio-options">
+        <label><input type="radio" name="inputType" value="url" checked onchange="handleInputTypeChange()"> Đường dẫn (URL)</label>
+        <label><input type="radio" name="inputType" value="text" onchange="handleInputTypeChange()"> Văn bản</label>
+        <!-- <label><input type="radio" name="inputType" value="voice" onchange="handleInputTypeChange()"> Giọng nói</label> -->
+      </div>
+
+      <div id="inputTextContainer">
+        <input class="input-box" id="inputField" type="text" placeholder="Vui lòng nhập đường dẫn đầu vào">
+      </div>
+
+      <div id="voiceControls" style="display: none;">
+        <div class="voice-container">
+          <label class="custom-upload">
+            Upload file từ máy tính
+            <input type="file" accept="audio/*">
+          </label>
+          <button class="record-btn">Bắt đầu ghi âm</button>
+        </div>
+      </div>
+
+      <button class="check-btn" onclick="showResult()">Kiểm tra</button>
+      <button class="reset-btn" onclick="resetPage()">↻ Làm mới</button>
+      <button class="history-btn" onclick="goToHistory()">Danh sách kết quả</button>
+    </div>
+
+    <div class="result-section" id="resultSection">
+      <h3>Kết quả kiểm tra:</h3>
+      <div class="text-full" id="textBlock">Nội dung trích xuất từ giọng nói hoặc nhập liệu.</div>
+
+      <div class="status-bar">
+        <span>Trạng thái nội dung</span>
+        <div class="bar">
+          <div class="bar-fill" style="width: 85%;"></div>
+        </div>
+        <span class="bar-label">85% - Nội dung toxic</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/detect.js') }}"></script>
+</body>
+</html>

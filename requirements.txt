@@ -1,0 +1,8 @@
+transformers
+torch
+beautifulsoup4
+lxml
+pymongo
+flask
+python-dotenv
+requests

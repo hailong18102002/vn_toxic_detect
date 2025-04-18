@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  body {
+    margin: 0;
+    background: linear-gradient(to right, #25427E, #4377E4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #1a1a1a;
+  }
+  .container {
+    text-align: center;
+    color: white;
+  }
+  .login-box {
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    width: 360px;
+    margin: 0 auto;
+    color: #1a1a1a;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  .login-box h2 {
+    margin-bottom: 20px;
+    color: #25427E;
+  }
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 15px;
+    background-color: #eee;
+  }
+  .checkbox {
+    text-align: left;
+    margin: 10px 0;
+  }
+  .checkbox input {
+    margin-right: 5px;
+  }
+  .login-box a {
+    color: #25427E;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  .login-box button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: #25427E;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .logo {
+    margin-bottom: 20px;
+  }
+  .logo img {
+    width: 500px;
+  }
+  .welcome {
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
