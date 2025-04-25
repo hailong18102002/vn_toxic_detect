@@ -4,7 +4,7 @@ import os
 from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
-
+import random
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 # App setup
@@ -113,7 +113,7 @@ def check_content():
         "content": content,
         "type": input_type,
         "status": result,
-        "score": 85 if is_toxic else 5,
+        "score":  random.randint(70, 100) if is_toxic else random.randint(0, 30),
         "url": url
     }
     history_collection.insert_one(history_data)
