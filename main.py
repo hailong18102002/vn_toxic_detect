@@ -6,7 +6,10 @@ import requests
 from bs4 import BeautifulSoup
 import random
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
-
+from nltk.tokenize import sent_tokenize
+import nltk
+nltk.download('punkt')
+nltk.download('punkt_tab')
 # App setup
 app = Flask(__name__)
 mongo_uri = os.getenv("MONGO_URL_CONNECT")
@@ -104,22 +107,26 @@ def check_content():
             return jsonify({"error": f"Lỗi khi lấy nội dung từ URL: {str(e)}"}), 500
 
     # Use model for detection
-    result = generate_output(text_to_check, PREFIX)
-    is_toxic = result.lower() == "toxic"
-
+    sentences = sent_tokenize(text_to_check)
+    results = []
+    for sentence in sentences:
+        label = generate_output(sentence, PREFIX)
+        print(sentence,label)
+        results.append("toxic" if label.lower() == "toxic" else "not toxic")
+    result = "toxic" if "toxic" in results else "non-toxic"
     # Prepare history
     history_data = {
         "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "content": content,
         "type": input_type,
         "status": result,
-        "score":  random.randint(70, 100) if is_toxic else random.randint(0, 30),
+        "score":  random.randint(70, 100) if result== "toxic" else random.randint(0, 30),
         "url": url
     }
     history_collection.insert_one(history_data)
 
     return jsonify({
-        'status': 'toxic' if is_toxic else 'non-toxic',
+        'status': result,
         'score': history_data['score'],
         'message': content
     })
