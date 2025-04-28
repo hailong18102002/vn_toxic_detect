@@ -117,7 +117,7 @@ def check_content():
     # Prepare history
     history_data = {
         "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "content": content,
+        "content": text_to_check,
         "type": input_type,
         "status": result,
         "score":  random.randint(70, 100) if result== "toxic" else random.randint(0, 30),
